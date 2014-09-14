@@ -1,0 +1,19 @@
+{
+  "name": "ninja-dynamixel",
+  "version": "0.0.1",
+  "description": "A ninja block driver for controlling dynamixels",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "ninja",
+    "ninja-block",
+    "block",
+    "dynamixel",
+    "robotics",
+    "robots"
+  ],
+  "author": "Kenni Bawden",
+  "license": "ISC"
+}
