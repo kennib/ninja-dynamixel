@@ -1,4 +1,5 @@
 var Device = require('./lib/device')
+  , DeviceSystem = require('dynanode')
   , util = require('util')
   , stream = require('stream')
   , configHandlers = require('./lib/config-handlers');
@@ -44,8 +45,15 @@ function myDriver(opts,app) {
       self.save();
     }
 
-    // Register a device
-    self.emit('register', new Device());
+    // Initialize the dynamixels motors
+    var ms = new DeviceSystem();
+    ms.init();
+
+    // Watch for motors to be added
+    ms.on("motorAdded", function(d) {
+      // Register a device
+      self.emit('register', new Device(d.motor));
+    })
   });
 };
 
